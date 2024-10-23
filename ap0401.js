@@ -107,11 +107,11 @@ function init() {
       new THREE.BoxGeometry(vFrameW, vFrameH, vFrameD),
       new MeshPhongMaterial({ color: 0xB3B3B3 })
     );
-    lFrame.position.x=hFrameW/2-vFrameW/2;
+    lFrame.position.x=-hFrameW/2+vFrameW/2;
     scene.add(lFrame);
     //   右の枠
     const rFlame = lFrame.clone();
-    rFlame.position.x=-(hFrameW/2-vFrameW/2);
+    rFlame.position.x=(hFrameW/2-vFrameW/2);
     scene.add(rFlame);
   }
 
@@ -125,12 +125,12 @@ function init() {
       vx = -Math.abs(vx);
     }
     // 左
-    if(-(ball.position.x+ballR)>hLimit){
+    if(ball.position.x-ballR<-hLimit){
       ball.position.x=-hLimit+ballR;
       vx = Math.abs(vx);
     }
     // 上
-    if(-(ball.position.z+ballR)>vLimit){
+    if(ball.position.z-ballR<-vLimit){
       ball.position.z= -vLimit+ballR;
       vz =Math.abs(vz);
     }
